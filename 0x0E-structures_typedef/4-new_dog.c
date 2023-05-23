@@ -14,11 +14,11 @@ dog_t *new_dog(char *name, float age, char *owner);
 
 int _strlen(char *str)
 {
-	int length = 0;
-	while (*str++)
-		length++;
+int length = 0;
+while (*str++)
+length++;
 
-	return (length);
+return (length);
 }
 
 
@@ -31,13 +31,13 @@ int _strlen(char *str)
 
 char *_strcpy(char *dest, char *src)
 {
-	int t = 0;
+int t = 0;
 
-	for (; src[t]; t++)
-		dest[t] = src[t];
+for (; src[t]; t++)
+dest[t] = src[t];
 
-	dest[t] = '\0';
-	return (dest);
+dest[t] = '\0';
+return (dest);
 }
 
 
@@ -51,34 +51,34 @@ char *_strcpy(char *dest, char *src)
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *smart;
+dog_t *smart;
 
-	if (name == NULL || age < 0 || owner == NULL)
-		return (NULL);
+if (name == NULL || age < 0 || owner == NULL)
+return (NULL);
 
-	smart = malloc(sizeof(dog_t));
-	if (smart == NULL)
-		return (NULL);
+smart = malloc(sizeof(dog_t));
+if (smart == NULL)
+return (NULL);
 
-	smart->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if (smart->name == NULL)
-	{
-		free(smart);
-		return (NULL);
-	}
+smart->name = malloc(sizeof(char) * (_strlen(name) + 1));
+if (smart->name == NULL)
+{
+free(smart);
+return (NULL);
+}
 
-	smart->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-	if (smart->owner == NULL)
-	{
-		free(smart->name);
-		free(smart);
-		return (NULL);
-	}
+smart->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+if (smart->owner == NULL)
+{
+free(smart->name);
+free(smart);
+return (NULL);
+}
 
-	smart->name = _strcpy(smart->name, name);
-	smart->age = age;
-	smart->owner = _strcpy(smart->owner, owner);
+smart->name = _strcpy(smart->name, name);
+smart->age = age;
+smart->owner = _strcpy(smart->owner, owner);
 
-	return (smart);
+return (smart);
 }
 
